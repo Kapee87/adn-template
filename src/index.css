@@ -1,0 +1,159 @@
+@font-face {
+  font-family: "Autorich-sans-lite";
+  src: url('./assets/autorich-sans-lite.ttf');
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  min-height: 100vw;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+body {
+  min-height: 100vh;
+}
+
+:root {
+  margin: 0;
+  padding: 0;
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #242424;
+  font-size: 13px;
+  min-width: 100%;
+}
+
+a {
+  font-weight: 500;
+  color: #646cff;
+  text-decoration: inherit;
+}
+
+a:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+
+}
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+  border-radius: 20px;
+}
+
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+main {
+  padding: 7rem;
+  margin: 0 auto;
+  text-align: center;
+  width: 80vw;
+
+}
+
+.header-title,
+footer p span {
+  font-family: Autorich-sans-lite;
+}
+
+
+
+header {
+  width: 100%;
+  /* display: block; */
+}
+
+header nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  gap: 3rem;
+  padding: 0 5rem;
+
+}
+
+header nav ul {
+  display: flex;
+  gap: 2rem;
+  list-style-type: none;
+  font-family: "Autorich-sans-lite";
+  font-size: large;
+}
+
+nav ul li a {
+  padding: 1rem;
+
+  border-radius: 10px;
+  transition: all 2s;
+}
+
+nav ul li a:hover {
+  color: #f3f3ff;
+  transition: all 2s;
+  background-color: #dedef977;
+  filter: drop-shadow(0 0 4em rgb(41, 48, 151));
+}
+
+.team,
+.about,
+.contact {
+  opacity: 1;
+  background-image: none;
+  color: #f3f3ff81;
+  text-shadow: 1px aliceblue solid;
+  transition: all 2s;
+}
+
+header,
+footer {
+  position: fixed;
+  background-color: rgba(74, 75, 75, 0.354);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.17);
+  backdrop-filter: blur(5px);
+}
+
+footer {
+  height: 1.5rem;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  align-items: center;
+}
