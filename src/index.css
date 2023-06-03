@@ -61,12 +61,12 @@ a:hover {
 .logo-container {
   display: flex;
   align-items: center;
-
+  gap: .5rem;
+  padding: .5rem;
 }
 
 .logo {
-  height: 6em;
-  padding: 1.5em;
+  height: 4em;
   will-change: filter;
   transition: filter 300ms;
   border-radius: 20px;
