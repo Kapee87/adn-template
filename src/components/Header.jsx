@@ -1,25 +1,56 @@
+import { faArrowsRotate, faBars, faX } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useState } from "react";
+import { Link } from "react-router-dom";
 
-export default function Header() {
 
+
+export default function Header({ logoChangeRef, logoA, logoB }) {
+    const [isDropOn, setIsDropOn] = useState(false)
+    const [logoChange, setlogoChange] = useState(logoChangeRef.current)
+
+
+    const handleDropdown = () => {
+        setIsDropOn(!isDropOn)
+    }
+    const handleLogoChange = () => {
+        setlogoChange(!logoChange)
+        logoChangeRef.current = !logoChange
+    }
     return (
         <header>
             <nav>
-                <a href="/" className="logo-container">
+                <span className="changeLogoText">cambiar logo
+                    <FontAwesomeIcon icon={faArrowsRotate} alt='Cambiar logo' className="logo-changer" onClick={handleLogoChange} />
+                </span>
+                <Link to="/" className={!logoChange ? 'logoContainerA' : 'logoContainerB'} >
                     <img
 
-                        src='https://media.discordapp.net/attachments/1113855362106413086/1114599922939994140/logoAdn.png'
+                        src={!logoChange ? logoA : logoB}
                         alt="Logo del website"
-                        className="logo"
+                        className={!logoChange ? 'logoA' : 'logoB'}
                     />
                     <span className="logo-text">Web Solutions</span>
-                </a>
-                <ul>
-                    <li ><a href="/" className="team"> Inicio </a></li>
-                    <li ><a href="/nosotros" className="team"> Nosotros </a></li>
-                    <li><a href="/proyectos" className="about">Proyectos</a> </li>
-                    <li><a href="/contacto" className="contact">Contacto</a> </li>
+                </Link>
+                <ul className="bigNav">
+                    <li><Link to="/" className="team"> Inicio </Link></li>
+                    <li><Link to="/nosotros" className="team"> Nosotros </Link></li>
+                    <li><Link to="/proyectos" className="about">Proyectos</Link> </li>
+                    <li><Link to="/contacto" className="contact">Contacto</Link> </li>
                 </ul>
+                <i className="burgerButton" >
+                    <FontAwesomeIcon icon={!isDropOn ? faBars : faX} onClick={handleDropdown} />
+                </i>
+                {isDropOn &&
+                    <ul className="dropNav">
+                        <li><Link to="/" className="team"> Inicio </Link></li>
+                        <li><Link to="/nosotros" className="team"> Nosotros </Link></li>
+                        <li><Link to="/proyectos" className="about">Proyectos</Link> </li>
+                        <li><Link to="/contacto" className="contact">Contacto</Link> </li>
+                    </ul>}
             </nav>
-        </header>
+        </header >
     )
+
+
 }

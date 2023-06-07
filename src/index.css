@@ -18,6 +18,7 @@
 
 body {
   min-height: 100vh;
+  max-height: fit-content;
 }
 
 :root {
@@ -59,23 +60,44 @@ a:hover {
 
 /* estilos del header */
 
-.logo-container {
+.logoContainerA,
+.logoContainerB {
   display: flex;
   align-items: center;
   gap: .5rem;
+}
+
+.logoContainerA {
   padding: .5rem;
 }
 
-.logo {
-  height: 4em;
+.logoA {
+  min-height: 1em;
+  height: 10vw;
+  max-height: 3em;
   will-change: filter;
   transition: filter 300ms;
   border-radius: 20px;
 }
 
-.logo-container:hover {
+.logoB {
+  min-height: 2em;
+  height: 10vh;
+  will-change: filter;
+  transition: filter 300ms;
+  object-fit: cover;
+}
+
+.logo-container:hover,
+.logo-changer:hover {
   filter: drop-shadow(0 0 2em #646cffaa);
   text-shadow: 0 0 2em #646cffaa;
+}
+
+.changeLogoText {
+  display: flex;
+  flex-direction: column;
+  font-size: .6em;
 }
 
 header {
@@ -88,7 +110,7 @@ header nav {
   align-items: center;
   justify-content: space-evenly;
   gap: 3rem;
-  padding: 0 5rem;
+  padding: 0 5vw;
 
 }
 
@@ -114,13 +136,49 @@ nav ul li a:hover {
   filter: drop-shadow(0 0 4em rgb(41, 48, 151));
 }
 
+.bigNav {
+  display: flex;
+}
+
+.burgerButton {
+  display: none;
+  position: absolute;
+  right: 2rem;
+  z-index: 10;
+}
+
+.burgerButton svg {
+  min-height: 1em;
+  max-height: 3em;
+  height: 10vw;
+  cursor: pointer;
+}
+
+.dropNav {
+  transition: all 1s ease-in-out;
+  position: fixed;
+  display: none;
+  height: 100vh;
+  width: 30vw;
+  min-width: 15rem;
+  top: 0;
+  right: 0;
+  padding: 5rem 1rem;
+  background-color: rgba(74, 75, 75, 0.808);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.17);
+  backdrop-filter: blur(5px);
+  flex-direction: column;
+}
+
+.logo-changer {
+  cursor: pointer;
+  height: 1.5rem;
+}
+
 /* Configuracion general para varias secciones y Footer */
 main {
-
-  margin: 0 auto;
   text-align: center;
   width: 79vw;
-
 }
 
 .team,
@@ -131,6 +189,14 @@ main {
   color: #f3f3ff81;
   text-shadow: 1px aliceblue solid;
   transition: all 2s;
+}
+
+.nosotros,
+.proyectos,
+.contacto {
+  height: 100vh;
+  padding: 0 5vw;
+  width: 100vw;
 }
 
 header,
@@ -160,18 +226,18 @@ footer {
   justify-content: flex-start;
   height: 100vh;
   width: 100vw;
-
 }
 
 .home .logo-container {
   display: flex;
   flex-direction: column;
-  padding: 5rem;
+  padding: 5em;
   font-size: 1.5rem;
   height: 60vh;
 }
 
 .home .skew-container {
+  transition: all 2s;
   justify-self: flex-end;
   height: 100vh;
   width: 100vw;
@@ -190,11 +256,131 @@ footer {
 }
 
 .logo-home {
-  width: 20rem;
-  height: 10rem;
+  min-width: 13rem;
+  width: 35vw;
+  min-height: 5rem;
+  height: 10vw;
   border-radius: 20px;
 }
 
 aside {
   margin-top: 30rem;
+}
+
+/* Sección sobre nosotros */
+.nosotros {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+}
+
+.avataresContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 5vw;
+}
+
+.avatarContainer img {
+  max-height: 8rem;
+  height: 10vh;
+  object-fit: cover;
+  border-radius: 100%;
+}
+
+/* Sección proyectos */
+.proyectos {
+  padding-top: 5rem;
+}
+
+.projectContainer {
+  margin-top: 2rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 3rem;
+}
+
+/* Seccion contacto */
+.contacto {
+  padding-top: 8rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.contacto form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.contacto form input,
+.contacto form textarea {
+  border: none;
+  border-radius: 5px;
+  height: 2rem;
+  text-align: center;
+  width: 30rem;
+  background-color: #545454;
+}
+
+.contacto form textarea {
+  height: 15rem;
+  padding: 1rem;
+  font-size: 1.2rem;
+}
+
+.contacto form button {
+  cursor: pointer;
+  width: 10rem;
+  background-color: #bfbfc0;
+  border: none;
+  border-radius: 3px;
+  height: 2rem;
+  color: #070707;
+  font-weight: bolder;
+}
+
+
+
+@media screen and (max-width:1024px) {
+  .bigNav {
+    display: none;
+  }
+
+  .burgerButton {
+    display: block;
+  }
+
+  .dropNav {
+    display: flex;
+  }
+
+  header nav {
+    justify-content: stretch;
+    gap: .3rem;
+    padding: 0 .5rem;
+  }
+
+  .home .skew-container {
+    position: absolute;
+    transform: none;
+    transition: all 2s;
+  }
+
+  .home .skew-container img {
+    object-fit: fill;
+  }
+
+  .home {
+    justify-content: center;
+    align-items: center;
+  }
+
+  .home .logo-container {
+    padding: 1rem;
+  }
 }
