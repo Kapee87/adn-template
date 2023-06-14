@@ -5,6 +5,9 @@ import marcosWeb from '../assets/marcosWeb.gif'
 import lucaWeb from '../assets/lucaWeb.gif'
 import francoWeb from '../assets/francoWeb.gif'
 import kapeeWeb from '../assets/kapeeWeb.gif'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faUpRightFromSquare } from '@fortawesome/free-solid-svg-icons'
+
 
 
 
@@ -50,6 +53,7 @@ export default function Proyectos() {
                             <a href={url} target="_blank" rel="noopener noreferrer">
                                 <img src={img || thumbnail} alt="" />
                                 <p>{url}</p>
+                                <FontAwesomeIcon icon={faUpRightFromSquare} size='2xl' className="arrow" />
                             </a>
                         </div>
 

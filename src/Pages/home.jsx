@@ -3,6 +3,10 @@ import wapIcon from '../assets/whatsapp.svg'
 import githubIcon from '../assets/github-alt.svg'
 
 import instaIcon from '../assets/instagram.svg'
+import { useRef, useState } from 'react'
+import { LOGOS_PATH } from '../utilities/logoPath'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faArrowsRotate } from '@fortawesome/free-solid-svg-icons'
 
 
 const mockRedes = [
@@ -22,15 +26,26 @@ const mockRedes = [
 
 
 export default function Home() {
+    const logoChangeRef = useRef()
+    logoChangeRef.current = logoChangeRef.current ?? false
+    const [logoChange, setlogoChange] = useState(logoChangeRef.current)
 
-    const handleHover = (e) => {
-        console.log('mouse uo');
+    const handleLogoChange = () => {
+        setlogoChange(!logoChange)
+        logoChangeRef.current = !logoChange
     }
     return (
         <>
             <section className="home">
                 <div className="logo-container">
-                    <img src='https://media.discordapp.net/attachments/1113855362106413086/1114599922939994140/logoAdn.png' alt="Logo de Adn" className="logo-home" />
+                    <span className="changeLogoText">cambiar logo
+                        <FontAwesomeIcon icon={faArrowsRotate} alt='Cambiar logo' className="logo-changer" onClick={handleLogoChange} />
+                    </span>
+                    <img
+                        src={!logoChange ? LOGOS_PATH.logoA : LOGOS_PATH.logoB}
+                        alt="Logo de Adn"
+                        className={!logoChange ? 'logoA' : 'logoB'}
+                    />
                     <h1 className="logo-text-home">
                         Web Solutions
                     </h1>
@@ -41,7 +56,7 @@ export default function Home() {
                 </div>
                 <aside className="redesFloater" >
                     {
-                        mockRedes.map(({ img, url}) => (
+                        mockRedes.map(({ img, url }) => (
                             <img src={img} alt="wasap icon"
                                 key={url} />
                         ))
