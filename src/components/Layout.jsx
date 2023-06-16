@@ -4,7 +4,7 @@ import Header from "./Header"
 import { useRef } from "react";
 import { LOGOS_PATH } from "../utilities/logoPath";
 
-
+ 
 export default function Layout() {
     const logoChangeRef = useRef()
     logoChangeRef.current = logoChangeRef.current ?? false

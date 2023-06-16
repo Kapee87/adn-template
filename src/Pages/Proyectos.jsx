@@ -36,7 +36,6 @@ const proyectsMock = [
         url: 'https://kapee87.github.io/Barberia-Alura/',
         img: kapeeWeb
     }
-
 ]
 
 export default function Proyectos() {
@@ -53,8 +52,8 @@ export default function Proyectos() {
                             <a href={url} target="_blank" rel="noopener noreferrer">
                                 <img src={img || thumbnail} alt="" />
                                 <p>{url}</p>
-                                <FontAwesomeIcon icon={faUpRightFromSquare} size='2xl' className="arrow" />
                             </a>
+                            <FontAwesomeIcon icon={faUpRightFromSquare} size='2xl' className="arrow" />
                         </div>
 
                     ))
