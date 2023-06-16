@@ -338,16 +338,15 @@ aside {
 /* Sección proyectos */
 .projects {
   padding-top: 5rem;
-  margin-bottom: calc(50vw);
-  height: max-content;
-  
+  padding-bottom: 5rem;
+  height: auto;
 }
 
 .projectContainer {
   margin-top: 2rem;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 3.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 5rem;
   justify-items: center;
 }
 
@@ -489,10 +488,18 @@ aside {
   .redesFloater img {
     height: 3rem;
   }
+
+  .projectContainer {
+    gap: 5rem;
+  }
 }
 
 @media screen and (max-width:480px) {
   .logo-text {
     display: none;
+  }
+
+  .projectContainer {
+    gap: 3rem;
   }
 }
